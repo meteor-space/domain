@@ -21,14 +21,14 @@ describe("Space.domain.ValueObject", function () {
     it("is equal when all fields are equal", function () {
       var values = { name: 'Test', age: 1 },
           first = new MyPerson(values), second = new MyPerson(values);
-      expect(first.isEqual(second)).to.be.true;
+      expect(first.equals(second)).to.be.true;
     });
 
     it("is not equal if at least one field is different", function () {
       var firstValues = { name: 'Test', age: 1 },
           secondValues = { name: 'Change', age: 1 },
           first = new MyPerson(firstValues), second = new MyPerson(secondValues);
-      expect(first.isEqual(second)).to.be.false;
+      expect(first.equals(second)).to.be.false;
     });
 
     it("supports comparison of nested value objects", function () {
@@ -37,7 +37,7 @@ describe("Space.domain.ValueObject", function () {
           secondPerson = new MyPerson(personValues),
           firstValue = new MyValue({ value: firstPerson }),
           secondValue = new MyValue({ value: secondPerson });
-      expect(firstValue.isEqual(secondValue)).to.be.true;
+      expect(firstValue.equals(secondValue)).to.be.true;
     });
 
     it("is not equal if a sub value object comparison fails", function () {
@@ -47,7 +47,7 @@ describe("Space.domain.ValueObject", function () {
           secondPerson = new MyPerson(secondValues),
           firstValue = new MyValue({ value: firstPerson }),
           secondValue = new MyValue({ value: secondPerson });
-      expect(firstValue.isEqual(secondValue)).to.be.false;
+      expect(firstValue.equals(secondValue)).to.be.false;
     });
 
   });

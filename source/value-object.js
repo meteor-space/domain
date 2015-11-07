@@ -1,6 +1,6 @@
 Space.messaging.Serializable.extend(Space.domain, 'ValueObject', {
 
-  isEqual: function(other) {
+  equals: function(other) {
     return (other.constructor === this.constructor) && this._hasSameValues(other);
   },
 
