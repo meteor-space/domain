@@ -8,7 +8,7 @@ Space.messaging.Serializable.extend(Space.domain, 'ValueObject', {
     var hasSameValues = true;
     for(var key in this.fields()) {
       if(this[key] instanceof Space.domain.ValueObject) {
-        if(!this[key].isEqual(other[key])) hasSameValues = false;
+        if(!this[key].equals(other[key])) hasSameValues = false;
       }
       else {
         if(this[key] !== other[key]) hasSameValues = false;
