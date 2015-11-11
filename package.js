@@ -14,9 +14,14 @@ Package.onUse(function(api) {
     'space:messaging@2.1.0'
   ]);
 
+  // SHARED
   api.addFiles([
     'source/namespace.js',
     'source/value-object.js',
+  ]);
+
+  // SERVER ONLY
+  api.addFiles([
     'source/entity.js',
   ], 'server');
 
@@ -33,6 +38,9 @@ Package.onTest(function(api) {
 
   api.addFiles([
     'tests/value-object.tests.js',
+  ]);
+
+  api.addFiles([
     'tests/entity.tests.js',
   ], 'server');
 
