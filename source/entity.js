@@ -1,24 +1,34 @@
-Space.Object.extend(Space.domain, 'Entity', {
+Space.messaging.Serializable.extend(Space.domain, 'Entity', {
 
   ERRORS: {
-    idRequired: function() {
+    idRequired() {
       return 'Entities need an ID on creation.';
     }
   },
 
-  _id: null,
+  id: null,
 
-  Constructor: function(id) {
-    if(!id) throw new Error(this.ERRORS.idRequired());
-    this._id = id;
+  Constructor(data) {
+    let preparedData = data;
+    if (data instanceof Guid) {
+      preparedData = { id: data };
+    }
+    if (!preparedData.id) throw new Error(this.ERRORS.idRequired());
+    Space.messaging.Serializable.call(this, preparedData);
   },
 
-  getId: function() {
-    return this._id;
+  fields() {
+    return {
+      id: Match.OneOf(String, Guid)
+    };
   },
 
-  isEqual: function(other) {
-    return (other.constructor === this.constructor) && other.getId() === this._id;
+  getId() {
+    return this.id;
+  },
+
+  equals(other) {
+    return (other.constructor === this.constructor) && other.getId() === this.id;
   }
 
 });
