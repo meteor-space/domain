@@ -34,6 +34,7 @@ Package.onTest(function(api) {
 
   api.use([
     'check',
+    'ecmascript',
     'space:testing@2.0.0',
     'space:domain',
     'practicalmeteor:munit@2.1.5'
