@@ -17,12 +17,12 @@ describe("Space.domain.Entity", function () {
 
     it("is equal when same class and ID", function () {
       var first = new Entity('123'), second = new Entity('123');
-      expect(first.isEqual(second)).to.be.true;
+      expect(first.equals(second)).to.be.true;
     });
 
     it("is not equal when same class but different ID", function () {
       var first = new Entity('123'), second = new Entity('543');
-      expect(first.isEqual(second)).to.be.false;
+      expect(first.equals(second)).to.be.false;
     });
 
     it("is not equal when different class but same ID", function () {
@@ -30,7 +30,7 @@ describe("Space.domain.Entity", function () {
           first = new Entity('123'),
           second = new OtherEntity('123');
 
-      expect(first.isEqual(second)).to.be.false;
+      expect(first.equals(second)).to.be.false;
     });
 
   });

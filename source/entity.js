@@ -10,10 +10,10 @@ Space.messaging.Serializable.extend(Space.domain, 'Entity', {
 
   Constructor(data) {
     let preparedData = data;
-    if (data instanceof Guid) {
+    if (_.isString(data) || data instanceof Guid) {
       preparedData = { id: data };
     }
-    if (!preparedData.id) throw new Error(this.ERRORS.idRequired());
+    if (!preparedData || !preparedData.id) throw new Error(this.ERRORS.idRequired());
     Space.messaging.Serializable.call(this, preparedData);
   },
 

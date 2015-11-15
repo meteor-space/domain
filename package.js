@@ -11,6 +11,7 @@ Package.onUse(function(api) {
 
   api.use([
     'check',
+    'underscore',
     'ecmascript',
     'space:base@3.2.1',
     'space:messaging@2.1.0'
