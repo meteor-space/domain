@@ -5,13 +5,12 @@ Space.messaging.Serializable.extend(Space.domain, 'ValueObject', {
   },
 
   _hasSameValues: function(other) {
-    var hasSameValues = true;
-    for(var key in this.fields()) {
-      if(this[key] instanceof Space.domain.ValueObject) {
-        if(!this[key].equals(other[key])) hasSameValues = false;
-      }
-      else {
-        if(this[key] !== other[key]) hasSameValues = false;
+    let hasSameValues = true;
+    for (let key in this.fields()) {
+      if (this[key] instanceof Space.domain.ValueObject) {
+        if (!this[key].equals(other[key])) hasSameValues = false;
+      } else {
+        if (this[key] !== other[key]) hasSameValues = false;
       }
     }
     return hasSameValues;
