@@ -25,7 +25,8 @@ Package.onUse(function(api) {
 
   // SERVER ONLY
   api.addFiles([
-    'source/entity.js'
+    'source/entity.js',
+    'source/server/exception.js'
   ], 'server');
 
 });
@@ -35,6 +36,7 @@ Package.onTest(function(api) {
   api.use([
     'check',
     'ecmascript',
+    'ejson',
     'space:testing@2.0.0',
     'space:domain',
     'practicalmeteor:munit@2.1.5'
@@ -45,7 +47,8 @@ Package.onTest(function(api) {
   ]);
 
   api.addFiles([
-    'tests/entity.tests.js'
+    'tests/entity.tests.js',
+    'tests/exception.tests.js'
   ], 'server');
 
 });
