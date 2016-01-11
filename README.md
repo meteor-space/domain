@@ -8,9 +8,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Add unit / integration tests for any new or changed functionality.
 
 ## Run the tests
-1. `npm install -g mgp`
-2. `mgp`
-3. `./test.sh`
+```sh
+./test.sh
+```
 
 ## Release History
 You can find the release history in the [changelog](https://github.com/meteor-space/domain/blob/master/CHANGELOG.md)
