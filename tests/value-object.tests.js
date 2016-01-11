@@ -8,7 +8,15 @@ describe("Space.domain.ValueObject", function() {
 
     let MyPerson = Space.domain.ValueObject.extend('MyPerson', {
       fields: function() {
-        return { name: String, age: Match.Integer };
+        return {
+          name: String,
+          age: Match.Integer,
+          emails: [String],
+          address: {
+            street: String,
+            country: String
+          }
+        };
       }
     });
 
@@ -19,34 +27,92 @@ describe("Space.domain.ValueObject", function() {
     });
 
     it("is equal when all fields are equal", function() {
-      let values = { name: 'Test', age: 1 };
-      let first = new MyPerson(values);
-      let second = new MyPerson(values);
+      let first = new MyPerson({
+        name: 'Test',
+        age: 1,
+        emails: ['a@foo.bar', 'b@foo.bar'],
+        address: {
+          street: 'Wallstreet',
+          country: 'USA'
+        }
+      });
+      let second = new MyPerson({
+        name: 'Test',
+        age: 1,
+        emails: ['a@foo.bar', 'b@foo.bar'],
+        address: {
+          street: 'Wallstreet',
+          country: 'USA'
+        }
+      });
       expect(first.equals(second)).to.be.true;
     });
 
     it("is not equal if at least one field is different", function() {
-      let firstValues = { name: 'Test', age: 1 };
-      let secondValues = { name: 'Change', age: 1 };
-      let first = new MyPerson(firstValues);
-      let second = new MyPerson(secondValues);
+      let first = new MyPerson({
+        name: 'Test',
+        age: 1,
+        emails: ['a@foo.bar', 'b@foo.bar'],
+        address: {
+          street: 'Wallstreet',
+          country: 'USA'
+        }
+      });
+      let second = new MyPerson({
+        name: 'Change',
+        age: 1,
+        emails: ['a@foo.bar', 'b@foo.bar'],
+        address: {
+          street: 'Wallstreet',
+          country: 'USA'
+        }
+      });
       expect(first.equals(second)).to.be.false;
     });
 
     it("supports comparison of nested value objects", function() {
-      let personValues = { name: 'Test', age: 1 };
-      let firstPerson = new MyPerson(personValues);
-      let secondPerson = new MyPerson(personValues);
+      let firstPerson = new MyPerson({
+        name: 'Test',
+        age: 1,
+        emails: ['a@foo.bar', 'b@foo.bar'],
+        address: {
+          street: 'Wallstreet',
+          country: 'USA'
+        }
+      });
+      let secondPerson = new MyPerson({
+        name: 'Test',
+        age: 1,
+        emails: ['a@foo.bar', 'b@foo.bar'],
+        address: {
+          street: 'Wallstreet',
+          country: 'USA'
+        }
+      });
       let firstValue = new MyValue({ value: firstPerson });
       let secondValue = new MyValue({ value: secondPerson });
       expect(firstValue.equals(secondValue)).to.be.true;
     });
 
     it("is not equal if a sub value object comparison fails", function() {
-      let firstValues = { name: 'Test', age: 1 };
-      let secondValues = { name: 'Changed', age: 1 };
-      let firstPerson = new MyPerson(firstValues);
-      let secondPerson = new MyPerson(secondValues);
+      let firstPerson = new MyPerson({
+        name: 'Test',
+        age: 1,
+        emails: ['a@foo.bar', 'b@foo.bar'],
+        address: {
+          street: 'Wallstreet',
+          country: 'USA'
+        }
+      });
+      let secondPerson = new MyPerson({
+        name: 'Changed',
+        age: 1,
+        emails: ['a@foo.bar', 'b@foo.bar'],
+        address: {
+          street: 'Wallstreet',
+          country: 'USA'
+        }
+      });
       let firstValue = new MyValue({ value: firstPerson });
       let secondValue = new MyValue({ value: secondPerson });
       expect(firstValue.equals(secondValue)).to.be.false;
