@@ -10,7 +10,7 @@ Space.messaging.Serializable.extend(Space.domain, 'ValueObject', {
       if (this[key] instanceof Space.domain.ValueObject) {
         if (!this[key].equals(other[key])) hasSameValues = false;
       } else {
-        if (this[key] !== other[key]) hasSameValues = false;
+        if (!_.isEqual(this[key], other[key])) hasSameValues = false;
       }
     }
     return hasSameValues;
