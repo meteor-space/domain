@@ -118,6 +118,20 @@ describe("Space.domain.ValueObject", function() {
       expect(firstValue.equals(secondValue)).to.be.false;
     });
 
+    it("is not equal if compared with a null value", function() {
+      let firstPerson = new MyPerson({
+        name: 'Test',
+        age: 1,
+        emails: ['a@foo.bar', 'b@foo.bar'],
+        address: {
+          street: 'Wallstreet',
+          country: 'USA'
+        }
+      });
+      let firstValue = new MyValue({ value: firstPerson });
+      expect(firstValue.equals(null)).to.be.false;
+    });
+
   });
 
 });
