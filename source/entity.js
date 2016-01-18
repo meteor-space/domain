@@ -1,4 +1,4 @@
-Space.messaging.Serializable.extend(Space.domain, 'Entity', {
+Space.messaging.Serializable.extend('Space.domain.Entity', {
 
   ERRORS: {
     idRequired() {
