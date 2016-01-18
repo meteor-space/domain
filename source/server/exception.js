@@ -1,8 +1,4 @@
-Space.messaging.Event.extend(Space.domain, 'Exception', {
-
-  onExtending() {
-    this.type('Space.domain.Exception');
-  },
+Space.messaging.Event.extend('Space.domain.Exception', {
 
   fields() {
     return _.extend(Space.messaging.Event.prototype.fields.call(this), {
