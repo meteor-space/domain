@@ -7,14 +7,14 @@ Package.describe({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom('1.2.0.1');
 
   api.use([
     'check',
     'underscore',
     'ecmascript',
-    'space:base@3.2.1',
-    'space:messaging@2.1.0'
+    'space:base@4.0.0',
+    'space:messaging@3.0.0'
   ]);
 
   // SHARED
@@ -37,7 +37,7 @@ Package.onTest(function(api) {
     'check',
     'ecmascript',
     'ejson',
-    'space:testing@2.0.0',
+    'space:testing@3.0.0',
     'space:domain',
     'practicalmeteor:munit@2.1.5'
   ]);
