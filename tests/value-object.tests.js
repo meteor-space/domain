@@ -4,10 +4,9 @@ describe("Space.domain.ValueObject", function() {
     expect(Space.domain.ValueObject).to.extend(Space.Struct);
   });
 
-  it('is serializable', function() {
+  it('is an EJSON object', function() {
     let vo = new Space.domain.ValueObject();
-    let copy = EJSON.parse(EJSON.stringify(vo));
-    expect(copy.equals(vo)).to.be.true;
+    expect(vo.isSerializable).to.equal(true);
   });
 
   describe("comparing value objects", function() {

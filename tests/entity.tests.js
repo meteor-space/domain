@@ -6,10 +6,9 @@ describe("Space.domain.Entity", function() {
     expect(Entity).to.extend(Space.Struct);
   });
 
-  it('is serializable', function() {
+  it('is an EJSON object', function() {
     let entity = new Entity('123');
-    let copy = EJSON.parse(EJSON.stringify(entity));
-    expect(copy.equals(entity)).to.be.true;
+    expect(entity.isSerializable).to.equal(true);
   });
 
   it("requires an ID on construction", function() {
