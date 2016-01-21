@@ -1,7 +1,12 @@
 describe("Space.domain.ValueObject", function() {
 
-  it("extends Space.messaging.Serializable", function() {
-    expect(Space.domain.ValueObject).to.extend(Space.messaging.Serializable);
+  it("extends Space.Struct", function() {
+    expect(Space.domain.ValueObject).to.extend(Space.Struct);
+  });
+
+  it('is an EJSON object', function() {
+    let vo = new Space.domain.ValueObject();
+    expect(vo.isSerializable).to.equal(true);
   });
 
   describe("comparing value objects", function() {

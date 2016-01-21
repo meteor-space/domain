@@ -1,4 +1,8 @@
-Space.messaging.Serializable.extend('Space.domain.Entity', {
+Space.Struct.extend('Space.domain.Entity', {
+
+  mixin: [
+    Space.messaging.Ejsonable
+  ],
 
   ERRORS: {
     idRequired() {

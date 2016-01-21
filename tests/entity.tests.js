@@ -1,6 +1,16 @@
 describe("Space.domain.Entity", function() {
 
   let Entity = Space.domain.Entity;
+  let OtherEntity = Space.domain.Entity.extend('OtherEntity');
+
+  it("extends Space.Struct", function() {
+    expect(Entity).to.extend(Space.Struct);
+  });
+
+  it('is an EJSON object', function() {
+    let entity = new Entity('123');
+    expect(entity.isSerializable).to.equal(true);
+  });
 
   it("requires an ID on construction", function() {
     let createEntityWithoutId = function() { return new Entity(); };
@@ -29,10 +39,8 @@ describe("Space.domain.Entity", function() {
     });
 
     it("is not equal when different class but same ID", function() {
-      let OtherEntity = Space.domain.Entity.extend('OtherEntity');
       let first = new Entity('123');
       let second = new OtherEntity('123');
-
       expect(first.equals(second)).to.be.false;
     });
 
