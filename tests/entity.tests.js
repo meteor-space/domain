@@ -2,6 +2,10 @@ describe("Space.domain.Entity", function() {
 
   let Entity = Space.domain.Entity;
 
+  it("extends Space.Struct", function() {
+    expect(Entity).to.extend(Space.Struct);
+  });
+
   it("requires an ID on construction", function() {
     let createEntityWithoutId = function() { return new Entity(); };
     expectedError = Space.domain.Entity.prototype.ERRORS.idRequired();
