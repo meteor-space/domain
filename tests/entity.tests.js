@@ -6,6 +6,12 @@ describe("Space.domain.Entity", function() {
     expect(Entity).to.extend(Space.Struct);
   });
 
+  it('is serializable', function() {
+    let entity = new Entity('123');
+    let copy = EJSON.parse(EJSON.stringify(entity));
+    expect(copy.equals(entity)).to.be.true;
+  });
+
   it("requires an ID on construction", function() {
     let createEntityWithoutId = function() { return new Entity(); };
     expectedError = Space.domain.Entity.prototype.ERRORS.idRequired();
