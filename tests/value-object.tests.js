@@ -1,7 +1,7 @@
 describe("Space.domain.ValueObject", function() {
 
-  it("extends Space.messaging.Serializable", function() {
-    expect(Space.domain.ValueObject).to.extend(Space.messaging.Serializable);
+  it("extends Space.Struct", function() {
+    expect(Space.domain.ValueObject).to.extend(Space.Struct);
   });
 
   describe("comparing value objects", function() {

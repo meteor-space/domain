@@ -1,4 +1,8 @@
-Space.messaging.Serializable.extend('Space.domain.ValueObject', {
+Space.Struct.extend('Space.domain.ValueObject', {
+
+  mixin: [
+    Space.messaging.Ejsonable
+  ],
 
   equals: function(other) {
     if(other === null) return false;
