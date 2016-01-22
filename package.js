@@ -26,6 +26,7 @@ Package.onUse(function(api) {
   // SERVER ONLY
   api.addFiles([
     'source/entity.js',
+    'source/server/event.js',
     'source/server/exception.js'
   ], 'server');
 
@@ -48,6 +49,7 @@ Package.onTest(function(api) {
 
   api.addFiles([
     'tests/entity.tests.js',
+    'tests/event.tests.js',
     'tests/exception.tests.js'
   ], 'server');
 

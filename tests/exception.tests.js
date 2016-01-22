@@ -1,4 +1,4 @@
-describe("Space.domain - Exception", function() {
+describe("Space.domain.Exception", function() {
 
   beforeEach(function() {
     this.error = new Space.Error('test');
@@ -9,7 +9,7 @@ describe("Space.domain - Exception", function() {
   });
 
   it("is an event", function() {
-    expect(Space.domain.Exception).to.extend(Space.messaging.Event);
+    expect(Space.domain.Exception).to.extend(Space.domain.Event);
   });
 
   it("adds required fields to the standard event fields", function() {
