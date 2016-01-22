@@ -5,7 +5,7 @@
   },
   "space:messaging": {
     "git":"https://github.com/meteor-space/messaging.git",
-    "version": "7be58d67c15b94033c7af698caec0a85b7841660"
+    "version": "bbaf57c511f7230c662d2ea4473b056148c82787"
   },
   "space:testing": {
     "git":"https://github.com/meteor-space/testing.git",

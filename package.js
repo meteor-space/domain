@@ -1,7 +1,7 @@
 Package.describe({
   summary: 'Domain Driven Design patterns for Space applications.',
   name: 'space:domain',
-  version: '0.1.0',
+  version: '0.2.1',
   git: 'https://github.com/meteor-space/domain.git'
 });
 
@@ -14,7 +14,7 @@ Package.onUse(function(api) {
     'underscore',
     'ecmascript',
     'space:base@4.0.0',
-    'space:messaging@3.0.0'
+    'space:messaging@3.0.1'
   ]);
 
   // SHARED
@@ -39,7 +39,7 @@ Package.onTest(function(api) {
     'check',
     'ecmascript',
     'ejson',
-    'space:testing@3.0.0',
+    'space:testing@3.0.1',
     'space:domain',
     'practicalmeteor:munit@2.1.5'
   ]);
