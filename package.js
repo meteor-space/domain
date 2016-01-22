@@ -20,7 +20,8 @@ Package.onUse(function(api) {
   // SHARED
   api.addFiles([
     'source/namespace.js',
-    'source/value-object.js'
+    'source/value-object.js',
+    'source/command.js'
   ]);
 
   // SERVER ONLY
@@ -44,7 +45,8 @@ Package.onTest(function(api) {
   ]);
 
   api.addFiles([
-    'tests/value-object.tests.js'
+    'tests/value-object.tests.js',
+    'tests/command.tests.js'
   ]);
 
   api.addFiles([
