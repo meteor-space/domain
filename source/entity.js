@@ -18,7 +18,7 @@ Space.Struct.extend('Space.domain.Entity', {
       preparedData = { id: data };
     }
     if (!preparedData || !preparedData.id) throw new Error(this.ERRORS.idRequired());
-    Space.messaging.Serializable.call(this, preparedData);
+    Space.Struct.call(this, preparedData);
   },
 
   fields() {
