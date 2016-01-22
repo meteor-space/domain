@@ -1,8 +1,14 @@
 Changelog
 =========
 
-### 0.1.0
-Initial alpha release of `space:domain`
+### 0.2.0 
+Adds specialised message classes that are drop-in replacements
+for the < 3.0.0 Space.messaging.Event/Command:
+- `Space.domain.Event` - Default fields: `sourceId`, `version`, and `timestamp`
+- `Space.domain.Command` - Default fields: `targetId`, and `timestamp`
 
-Features:
-- Adds DDD specific classes `Space.domain.ValueObject` and `Space.domain.Entity`
+### 0.1.0
+
+- `Space.domain.ValueObject`
+- `Space.domain.Entity`
+- `Space.domain.Exception`
