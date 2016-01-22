@@ -19,7 +19,7 @@ describe("Space.domain.Event", function() {
 
     it('can be created using Guid source id', function() {
       expect(function() {
-        return new Event({sourceId: new Guid()})
+        return new Space.domain.Event({sourceId: new Guid()})
       }).not.to.throw
     });
 
