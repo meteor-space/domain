@@ -1,7 +1,7 @@
 Changelog
 =========
 
-### 0.2.0 
+### 0.2.1
 Adds specialised message classes that are drop-in replacements
 for the < 3.0.0 Space.messaging.Event/Command:
 - `Space.domain.Event` - Default fields: `sourceId`, `version`, and `timestamp`
