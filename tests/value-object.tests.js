@@ -4,9 +4,20 @@ describe("Space.domain.ValueObject", function() {
     expect(Space.domain.ValueObject).to.extend(Space.Struct);
   });
 
-  it('is Ejsonable', function() {
-    const vo = new Space.domain.ValueObject();
-    expect(vo.hasMixin(Space.messaging.Ejsonable)).to.equal(true);
+  describe("mixed in traits", function() {
+
+    beforeEach(function() {
+      this.vo = new Space.domain.ValueObject();
+    });
+
+    it('is Ejsonable', function() {
+      expect(this.vo.hasMixin(Space.messaging.Ejsonable)).to.equal(true);
+    });
+
+    it('is Versionable', function() {
+      expect(this.vo.hasMixin(Space.messaging.Versionable)).to.equal(true);
+    });
+
   });
 
   describe("comparing value objects", function() {

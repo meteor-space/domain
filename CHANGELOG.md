@@ -2,8 +2,12 @@ Changelog
 =========
 
 ### Next
+#### New Features
+- `Space.domain.ValueObject` is now Versionable, just like
+`Space.domain.Event` or `Space.domain.Exception`
+
 ####Breaking change
-`eventVersion` -> `schemaVersion` in `Space.domain.Event` and 
+- `eventVersion` -> `schemaVersion` in `Space.domain.Event` and 
 `Space.domain.Exception`. Inherited from `Space.messaging.Event`, via mixin 
 `Space.messaging.Versionable`.
 
