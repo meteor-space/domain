@@ -5,12 +5,16 @@ describe("Space.domain.Command", function() {
     this.command = new Space.domain.Command(this.params);
   });
 
-  it('is Ejsonable', function() {
-    expect(this.command.hasMixin(Space.messaging.Ejsonable)).to.equal(true);
-  });
+  describe("mixed in traits", function() {
 
-  it('is not Versionable', function() {
-    expect(this.command.hasMixin(Space.messaging.Versionable)).to.equal(false);
+    it('is Ejsonable', function() {
+      expect(this.command.hasMixin(Space.messaging.Ejsonable)).to.equal(true);
+    });
+
+    it('is not Versionable', function() {
+      expect(this.command.hasMixin(Space.messaging.Versionable)).to.equal(false);
+    });
+
   });
 
   it('defines its EJSON type correctly', function() {
