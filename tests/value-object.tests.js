@@ -4,14 +4,25 @@ describe("Space.domain.ValueObject", function() {
     expect(Space.domain.ValueObject).to.extend(Space.Struct);
   });
 
-  it('is an EJSON object', function() {
-    let vo = new Space.domain.ValueObject();
-    expect(vo.isSerializable).to.equal(true);
+  describe("mixed in traits", function() {
+
+    beforeEach(function() {
+      this.vo = new Space.domain.ValueObject();
+    });
+
+    it('is Ejsonable', function() {
+      expect(this.vo.hasMixin(Space.messaging.Ejsonable)).to.equal(true);
+    });
+
+    it('is Versionable', function() {
+      expect(this.vo.hasMixin(Space.messaging.Versionable)).to.equal(true);
+    });
+
   });
 
   describe("comparing value objects", function() {
 
-    let MyPerson = Space.domain.ValueObject.extend('MyPerson', {
+    const MyPerson = Space.domain.ValueObject.extend('MyPerson', {
       fields: function() {
         return {
           name: String,
@@ -25,14 +36,14 @@ describe("Space.domain.ValueObject", function() {
       }
     });
 
-    let MyValue = Space.domain.ValueObject.extend('MyValue', {
+    const MyValue = Space.domain.ValueObject.extend('MyValue', {
       fields: function() {
         return { value: MyPerson };
       }
     });
 
     it("is equal when all fields are equal", function() {
-      let first = new MyPerson({
+      const first = new MyPerson({
         name: 'Test',
         age: 1,
         emails: ['a@foo.bar', 'b@foo.bar'],
@@ -41,7 +52,7 @@ describe("Space.domain.ValueObject", function() {
           country: 'USA'
         }
       });
-      let second = new MyPerson({
+      const second = new MyPerson({
         name: 'Test',
         age: 1,
         emails: ['a@foo.bar', 'b@foo.bar'],
@@ -54,7 +65,7 @@ describe("Space.domain.ValueObject", function() {
     });
 
     it("is not equal if at least one field is different", function() {
-      let first = new MyPerson({
+      const first = new MyPerson({
         name: 'Test',
         age: 1,
         emails: ['a@foo.bar', 'b@foo.bar'],
@@ -63,7 +74,7 @@ describe("Space.domain.ValueObject", function() {
           country: 'USA'
         }
       });
-      let second = new MyPerson({
+      const second = new MyPerson({
         name: 'Change',
         age: 1,
         emails: ['a@foo.bar', 'b@foo.bar'],
@@ -76,7 +87,7 @@ describe("Space.domain.ValueObject", function() {
     });
 
     it("supports comparison of nested value objects", function() {
-      let firstPerson = new MyPerson({
+      const firstPerson = new MyPerson({
         name: 'Test',
         age: 1,
         emails: ['a@foo.bar', 'b@foo.bar'],
@@ -85,7 +96,7 @@ describe("Space.domain.ValueObject", function() {
           country: 'USA'
         }
       });
-      let secondPerson = new MyPerson({
+      const secondPerson = new MyPerson({
         name: 'Test',
         age: 1,
         emails: ['a@foo.bar', 'b@foo.bar'],
@@ -109,7 +120,7 @@ describe("Space.domain.ValueObject", function() {
           country: 'USA'
         }
       });
-      let secondPerson = new MyPerson({
+      const secondPerson = new MyPerson({
         name: 'Changed',
         age: 1,
         emails: ['a@foo.bar', 'b@foo.bar'],
@@ -118,13 +129,13 @@ describe("Space.domain.ValueObject", function() {
           country: 'USA'
         }
       });
-      let firstValue = new MyValue({ value: firstPerson });
-      let secondValue = new MyValue({ value: secondPerson });
+      const firstValue = new MyValue({ value: firstPerson });
+      const secondValue = new MyValue({ value: secondPerson });
       expect(firstValue.equals(secondValue)).to.be.false;
     });
 
     it("is not equal if compared with a null value", function() {
-      let firstPerson = new MyPerson({
+      const firstPerson = new MyPerson({
         name: 'Test',
         age: 1,
         emails: ['a@foo.bar', 'b@foo.bar'],
@@ -133,7 +144,7 @@ describe("Space.domain.ValueObject", function() {
           country: 'USA'
         }
       });
-      let firstValue = new MyValue({ value: firstPerson });
+      const firstValue = new MyValue({ value: firstPerson });
       expect(firstValue.equals(null)).to.be.false;
     });
 

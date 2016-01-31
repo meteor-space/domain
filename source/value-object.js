@@ -1,7 +1,8 @@
 Space.Struct.extend('Space.domain.ValueObject', {
 
   mixin: [
-    Space.messaging.Ejsonable
+    Space.messaging.Ejsonable,
+    Space.messaging.Versionable
   ],
 
   equals: function(other) {
