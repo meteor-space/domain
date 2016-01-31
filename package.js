@@ -13,8 +13,8 @@ Package.onUse(function(api) {
     'check',
     'underscore',
     'ecmascript',
-    'space:base@4.0.0',
-    'space:messaging@3.0.1'
+    'space:base@4.1.1',
+    'space:messaging@3.1.1'
   ]);
 
   // SHARED
