@@ -36,7 +36,7 @@ describe('Space.domain.Command', function() {
     it('defines its EJSON type correctly', function() {
       expect(this.command.typeName()).to.equal('Space.domain.Command');
     });
-    
+
   });
   
   describe('default field assignment', function() {
