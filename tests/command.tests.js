@@ -5,6 +5,14 @@ describe("Space.domain.Command", function() {
     this.command = new Space.domain.Command(this.params);
   });
 
+  it('is Ejsonable', function() {
+    expect(this.command.hasMixin(Space.messaging.Ejsonable)).to.equal(true);
+  });
+
+  it('is not Versionable', function() {
+    expect(this.command.hasMixin(Space.messaging.Versionable)).to.equal(false);
+  });
+
   it('defines its EJSON type correctly', function() {
     expect(this.command.typeName()).to.equal('Space.domain.Command');
   });
@@ -12,15 +20,17 @@ describe("Space.domain.Command", function() {
   describe('default fields', function() {
 
     it('can be created using string target id', function() {
-      expect(function() {
+      const createWithStringTargetId = function() {
         return new Space.domain.Command({targetId: '123'})
-      }).not.to.throw
+      };
+      expect(createWithStringTargetId).not.to.throw
     });
 
     it('can be created using Guid target id', function() {
-      expect(function() {
+      const createWithGuidTargetId = function() {
         return new Space.domain.Command({targetId: new Guid()})
-      }).not.to.throw
+      };
+      expect(createWithGuidTargetId).not.to.throw
     });
 
   });
