@@ -1,7 +1,7 @@
 Package.describe({
   summary: 'Domain Driven Design patterns for Space applications.',
   name: 'space:domain',
-  version: '0.2.1',
+  version: '0.3.0',
   git: 'https://github.com/meteor-space/domain.git'
 });
 
