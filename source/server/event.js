@@ -11,7 +11,6 @@ Space.messaging.Event.extend('Space.domain.Event', {
     let fields = Space.messaging.Event.prototype.fields.call(this);
     // Add default fields to all domain events
     if (!fields.sourceId) fields.sourceId = Match.Optional(Match.OneOf(String, Guid));
-    fields.eventVersion = Match.Optional(Match.Integer);
     fields.version = Match.Optional(Match.Integer);
     fields.timestamp = Date;
     fields.meta = Match.Optional(Object);
