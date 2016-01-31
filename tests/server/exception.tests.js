@@ -8,14 +8,14 @@ describe("Space.domain.Exception", function() {
     });
   });
 
-  it("is an event", function() {
+  it("is a domain event", function() {
     expect(Space.domain.Exception).to.extend(Space.domain.Event);
   });
 
   it("adds required fields to the standard event fields", function() {
     expect(this.myExceptionEvent.fields()).to.eql({
       sourceId: Match.Optional(Match.OneOf(String, Guid)),
-      eventVersion: Match.Optional(Match.Integer),
+      schemaVersion: Match.Optional(Match.Integer),
       version: Match.Optional(Match.Integer),
       timestamp: Date,
       meta: Match.Optional(Object),
