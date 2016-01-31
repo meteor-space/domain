@@ -17,8 +17,8 @@ describe("Space.domain.Entity", function() {
       expect(this.entity.hasMixin(Space.messaging.Ejsonable)).to.equal(true);
     });
 
-    it('is not Versionable', function() {
-      expect(this.entity.hasMixin(Space.messaging.Versionable)).to.equal(false);
+    it('is Versionable', function() {
+      expect(this.entity.hasMixin(Space.messaging.Versionable)).to.equal(true);
     });
 
   });

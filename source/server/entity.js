@@ -1,7 +1,8 @@
 Space.Struct.extend('Space.domain.Entity', {
 
   mixin: [
-    Space.messaging.Ejsonable
+    Space.messaging.Ejsonable,
+    Space.messaging.Versionable
   ],
 
   ERRORS: {
