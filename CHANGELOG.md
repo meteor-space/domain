@@ -3,8 +3,10 @@ Changelog
 
 ### Next
 #### New Features
-- `Space.domain.ValueObject` is now Versionable, just like
-`Space.domain.Event` or `Space.domain.Exception`
+- `Space.domain.ValueObject` and `Space.domain.Entity` are now also Versionable, 
+just like `Space.domain.Event` or `Space.domain.Exception`. 
+Now all domain.Objects intended to be serialized and persisted can be versioned
+ to allow on the fly transformations as defined in the object.
 
 ####Breaking change
 - `eventVersion` -> `schemaVersion` in `Space.domain.Event` and 
