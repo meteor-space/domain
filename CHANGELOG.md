@@ -1,7 +1,7 @@
 Changelog
 =========
 
-### 0.3.0
+### Next
 ####Breaking change
 `eventVersion` -> `schemaVersion` in `Space.domain.Event` and 
 `Space.domain.Exception`. Inherited from `Space.messaging.Event`, via mixin 
