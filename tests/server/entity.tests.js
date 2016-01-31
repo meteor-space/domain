@@ -7,9 +7,20 @@ describe("Space.domain.Entity", function() {
     expect(Entity).to.extend(Space.Struct);
   });
 
-  it('is an EJSON object', function() {
-    let entity = new Entity('123');
-    expect(entity.isSerializable).to.equal(true);
+  describe("mixed in traits", function() {
+
+    beforeEach(function() {
+      this.entity = new Entity('123')
+    });
+
+    it('is Ejsonable', function() {
+      expect(this.entity.hasMixin(Space.messaging.Ejsonable)).to.equal(true);
+    });
+
+    it('is not Versionable', function() {
+      expect(this.entity.hasMixin(Space.messaging.Versionable)).to.equal(false);
+    });
+
   });
 
   it("requires an ID on construction", function() {
