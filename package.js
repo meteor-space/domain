@@ -21,13 +21,13 @@ Package.onUse(function(api) {
   api.addFiles([
     'source/namespace.js',
     'source/value-object.js',
-    'source/command.js'
+    'source/command.js',
+    'source/server/event.js'
   ]);
 
   // SERVER ONLY
   api.addFiles([
     'source/server/entity.js',
-    'source/server/event.js',
     'source/server/exception.js'
   ], 'server');
 
