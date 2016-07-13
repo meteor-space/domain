@@ -3,14 +3,15 @@ Changelog
 
 ### Next
 #### New Features
-- `Space.domain.ValueObject` and `Space.domain.Entity` are now also Versionable, 
-just like `Space.domain.Event` or `Space.domain.Exception`. 
+- `Space.domain.ValueObject` and `Space.domain.Entity` are now also Versionable,
+just like `Space.domain.Event` or `Space.domain.Exception`.
 Now all domain.Objects intended to be serialized and persisted can be versioned
  to allow on the fly transformations as defined in the object.
+- The `Space.domain.Event` class is not also available on client-side.
 
 ####Breaking change
-- `eventVersion` -> `schemaVersion` in `Space.domain.Event` and 
-`Space.domain.Exception`. Inherited from `Space.messaging.Event`, via mixin 
+- `eventVersion` -> `schemaVersion` in `Space.domain.Event` and
+`Space.domain.Exception`. Inherited from `Space.messaging.Event`, via mixin
 `Space.messaging.Versionable`.
 
 #### Updated dependencies
